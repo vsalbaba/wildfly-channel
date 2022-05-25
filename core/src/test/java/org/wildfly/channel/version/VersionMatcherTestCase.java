@@ -90,6 +90,35 @@ public class VersionMatcherTestCase {
         assertLatestVersion("2.1.9.redhat-002",
                 "2.1.9.redhat-1", "2.1.9.redhat-002");
     }
+    @Test
+    public void test12() {
+        assertLatestVersion("1.0.0.Final",
+                "1.0.0", "1.0.0.Final");
+    }
+
+    @Test
+    public void test13() {
+        assertLatestVersion("1.0.0.Final",
+                "1.0.0.Alpha", "1.0.0.Final");
+    }
+
+    @Test
+    public void test14() {
+        assertLatestVersion("1.0.0.GA-redhat-1",
+                "1.0.0.redhat-1", "1.0.0.GA-redhat-1");
+    }
+
+    @Test
+    public void test15() {
+        assertLatestVersion("1.0.10",
+                "1.0.2", "1.0.10");
+    }
+
+    @Test
+    public void test16() {
+        assertLatestVersion("1.0.0.GA",
+                "1.0.0.GA", "1.0.0.RC1");
+    }
 
     private static void assertLatestVersion(String expectedLatest, String... versions) {
         assertEquals(expectedLatest, getLatestVersion(Set.of(versions)).get());
