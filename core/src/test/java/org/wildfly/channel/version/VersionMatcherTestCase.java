@@ -117,7 +117,13 @@ public class VersionMatcherTestCase {
     @Test
     public void test16() {
         assertLatestVersion("1.0.0.GA",
-                "1.0.0.GA", "1.0.0.RC1");
+                "1.0.0.GA", "1.0.0.CR1");
+    }
+
+    @Test
+    public void test17() {
+        assertLatestVersion("2.1.9.redhat-010",
+                "2.1.9.redhat-010", "2.1.9.redhat-002");
     }
 
     private static void assertLatestVersion(String expectedLatest, String... versions) {
